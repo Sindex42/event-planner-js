@@ -11,14 +11,11 @@ class EventPlan {
     this.time = time
   }
 
-
   convertEventPlan () {
-    const p = document.createElement('p');
+    const p = document.createElement('p')
     p.innerText = `${this.content} on ${this.date} at ${this.time}`
-    return p;
+    return p
   }
-
-
 }
 
 function reformatDate (date) {

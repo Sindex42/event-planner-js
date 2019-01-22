@@ -1,5 +1,7 @@
-describe('Event', function () {
+'use strict'
+/* global describe, it, expect, EventPlan */
 
+describe('EventPlan', function () {
   let content = 'test event'
   let date = '2020-01-16'
   let time = '12:01'
