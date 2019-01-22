@@ -9,6 +9,7 @@ class EventPlan {
     this.content = content
     this.date = date
     this.time = time
+    this.dateTime = (date + time).replace(/[^0-9]/g, "")
   }
 
   convertEventPlan () {

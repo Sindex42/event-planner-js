@@ -30,4 +30,18 @@ describe('EventPlan', function () {
       expect(event1.time).toEqual('12:01')
     })
   })
+
+  describe('dateTime', () => {
+    it('should create an event with a dateTime', function () {
+      expect(event1.dateTime).toEqual('202001161201')
+    })
+  })
+
+})
+
+describe('reformatDate', () => {
+  it('should reformat the date', function () {
+    let date = '16/01/2020'
+    expect(reformatDate(date)).toEqual('2020-01-16')
+  })
 })
