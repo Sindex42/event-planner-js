@@ -1,4 +1,4 @@
-class EventPlanner {
+class EventPlan {
   constructor (content, date, time) {
     let today = new Date().toLocaleDateString()
 
@@ -10,6 +10,14 @@ class EventPlanner {
     this.date = date
     this.time = time
   }
+
+
+  convertEventPlan () {
+    const p = document.createElement('p');
+    p.innerText = `${this.content} on ${this.date} at ${this.time}`
+    return p;
+  }
+
 
 }
 

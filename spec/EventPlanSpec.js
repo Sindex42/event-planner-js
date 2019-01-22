@@ -3,7 +3,7 @@ describe('Event', function () {
   let content = 'test event'
   let date = '2020-01-16'
   let time = '12:01'
-  let event1 = new EventPlanner(content, date, time)
+  let event1 = new EventPlan(content, date, time)
 
   describe('content', () => {
     it('should create an event with content', function () {
@@ -18,7 +18,7 @@ describe('Event', function () {
 
     it('should throw an error if the user tries to create an event in the past', function () {
       expect(function () {
-        new EventPlanner('Event in the past', '1970-01-01', '12:01')
+        new EventPlan('Event in the past', '1970-01-01', '12:01')
       }).toThrowError('Cannot create an event in the past')
     })
   })
