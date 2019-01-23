@@ -36,6 +36,12 @@ describe('EventPlan', () => {
       expect(event1.dateTime).toEqual('202001161201')
     })
   })
+
+  describe('#renderEventPlan', () => {
+    it('renders a given event', () => {
+      expect(event1.renderEventPlan().innerText).toEqual('test event on 2020-01-16 at 12:01')
+    })
+  })
 })
 
 describe('#reformatDate', () => {

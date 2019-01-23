@@ -19,7 +19,6 @@ window.onload = () => {
   const display = () => {
     let eventsDiv = document.getElementById('events')
     let events = eventList.renderEventList()
-    console.log(events)
     eventsDiv.appendChild(events)
   }
 }
