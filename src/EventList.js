@@ -18,4 +18,12 @@ class EventList {
     })
     return listDiv
   }
+
+  sortEvents () {
+    this.events.sort((a, b) => (a.dateTime > b.dateTime) ? 1 : -1)
+  }
+
+  sortt (array) {
+    array.sort((a, b) => (a > b) ? 1 : -1)
+  }
 }
