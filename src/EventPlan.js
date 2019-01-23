@@ -12,7 +12,7 @@ class EventPlan {
     this.dateTime = removeNonNumeric(this.date + time)
   }
 
-  convertEventPlan () {
+  renderEventPlan () {
     const p = document.createElement('p')
     p.innerText = `${this.content} on ${this.date} at ${this.time}`
     return p

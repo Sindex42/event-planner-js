@@ -1,4 +1,4 @@
-class Events {
+class EventList {
   constructor () {
     this.eventArray = []
   }
@@ -7,9 +7,7 @@ class Events {
     this.eventArray.push(eventPlan);
   }
 
-
-
-  convertEvents () {
+  renderEventList () {
     var div = document.createElement('div')
     var arrayLength = this.eventArray.length
     this.eventArray.sort((a, b) => (a.dateTime > b.dateTime) ? 1 : -1)

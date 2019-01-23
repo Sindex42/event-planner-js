@@ -1,8 +1,8 @@
 'use strict'
 /* global describe, it, expect, EventPlan */
 
-describe('Events', function () {
-  let events = new Events
+describe('EventList', function () {
+  let events = new EventList
   let oneEvent = 'Event'
 
   describe('eventArray', function () {
