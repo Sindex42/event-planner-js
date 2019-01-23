@@ -1,19 +1,21 @@
+'use strict'
+
 class EventList {
   constructor () {
-    this.eventArray = []
+    this.events = []
   }
 
   add (eventPlan) {
-    this.eventArray.push(eventPlan);
+    this.events.push(eventPlan);
   }
 
   renderEventList () {
-    var div = document.createElement('div')
-    var arrayLength = this.eventArray.length
-    this.eventArray.sort((a, b) => (a.dateTime > b.dateTime) ? 1 : -1)
-
-    // for (let i = 0; i < arrayLength; i++) {
-    //
-    // }
+    let listDiv = document.createElement('div')
+    this.events.forEach((eventPlan) => {
+      let eventHtml = eventPlan.renderEventPlan()
+      listDiv.innerHTML = ''
+      listDiv.appendChild(eventHtml)
+    })
+    return listDiv
   }
 }

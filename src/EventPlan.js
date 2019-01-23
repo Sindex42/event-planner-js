@@ -1,3 +1,5 @@
+'use strict'
+
 class EventPlan {
   constructor (content, date, time) {
     let today = new Date().toLocaleDateString()
@@ -13,20 +15,20 @@ class EventPlan {
   }
 
   renderEventPlan () {
-    const p = document.createElement('p')
-    p.innerText = `${this.content} on ${this.date} at ${this.time}`
-    return p
+    let div = document.createElement('div')
+    div.innerText = `${this.content} on ${this.date} at ${this.time}`
+    return div
   }
 }
 
-function reformatDate (date) {
-  var splitDate = date.split('/')
-  var reverseDate = splitDate.reverse()
-  var joinDate = reverseDate.join('-')
+const reformatDate = (date) => {
+  let splitDate = date.split('/')
+  let reverseDate = splitDate.reverse()
+  let joinDate = reverseDate.join('-')
 
   return joinDate
 }
 
-function removeNonNumeric (string) {
-  return string.replace(/[^0-9]/g, "")
+const removeNonNumeric = (string) => {
+  return string.replace(/[^0-9]/g, '')
 }
