@@ -7,9 +7,9 @@ class EventPlan {
     }
 
     this.content = content
-    this.date = date
+    this.date = reformatDate(date)
     this.time = time
-    this.dateTime = (date + time).replace(/[^0-9]/g, "")
+    this.dateTime = removeNonNumeric(this.date + time)
   }
 
   convertEventPlan () {
@@ -25,4 +25,8 @@ function reformatDate (date) {
   var joinDate = reverseDate.join('-')
 
   return joinDate
+}
+
+function removeNonNumeric (string) {
+  return string.replace(/[^0-9]/g, "")
 }

@@ -11,7 +11,7 @@ describe('Events', function () {
     })
   })
 
-  describe('add', function () {
+  describe('#add', function () {
     it('should add an event to the array of events ', function () {
       events.add(oneEvent);
       expect(events.eventArray).toContain('Event')

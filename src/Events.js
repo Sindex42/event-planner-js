@@ -11,11 +11,11 @@ class Events {
 
   convertEvents () {
     var div = document.createElement('div')
-    var arrayLength = this.eventArray.arrayLength
+    var arrayLength = this.eventArray.length
     this.eventArray.sort((a, b) => (a.dateTime > b.dateTime) ? 1 : -1)
 
     // for (let i = 0; i < arrayLength; i++) {
-    // 
+    //
     // }
   }
 }

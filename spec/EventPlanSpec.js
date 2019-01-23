@@ -3,7 +3,7 @@
 
 describe('EventPlan', function () {
   let content = 'test event'
-  let date = '2020-01-16'
+  let date = '16/01/2020'
   let time = '12:01'
   let event1 = new EventPlan(content, date, time)
 
@@ -36,12 +36,18 @@ describe('EventPlan', function () {
       expect(event1.dateTime).toEqual('202001161201')
     })
   })
-
 })
 
-describe('reformatDate', () => {
+describe('#reformatDate', () => {
   it('should reformat the date', function () {
     let date = '16/01/2020'
     expect(reformatDate(date)).toEqual('2020-01-16')
+  })
+})
+
+describe('#removeNonNumeric', () => {
+  it('should remove all non numeric characters', function () {
+    let string = '2020-01-1612:01'
+    expect(removeNonNumeric(string)).toEqual('202001161201')
   })
 })
