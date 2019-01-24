@@ -4,7 +4,8 @@ window.onload = () => {
   let button = document.getElementById('button')
   let eventList = new EventList()
   let eventsDiv = document.getElementById('events')
-  
+  let deleteButton = document.getElementById("delete-button")
+
   const display = () => {
     eventsDiv.innerHTML = ''
     let events = eventList.renderEventList()
@@ -17,7 +18,7 @@ window.onload = () => {
     eventsDiv.innerHTML = "No events listed";
   }
 
-  button.addEventListener('click', () => {
+  button.onclick = () => {
     let content = document.getElementById('textbox')
     let date = document.getElementById('date')
     let time = document.getElementById('time')
@@ -26,6 +27,12 @@ window.onload = () => {
     eventList.add(eventPlan)
     content.value = date.value = time.value = ''
     display()
-  })
+  }
+
+  deleteButton.onclick = () => {
+    localStorage.removeItem("Events")
+    eventList.events = eventList.inStorage()
+    eventsDiv.innerHTML = "No events listed";
+  }
 
 }
