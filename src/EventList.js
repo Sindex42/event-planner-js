@@ -2,7 +2,15 @@
 
 class EventList {
   constructor () {
-    this.events = this.inflateEvents(JSON.parse(localStorage.getItem("Events"))) || [];
+    this.events = this.inStorage()
+  }
+  
+  inStorage() {
+    if(!localStorage.getItem('Events')){
+      return []
+    } else {
+      return this.inflateEvents(JSON.parse(localStorage.getItem('Events')))
+    }
   }
 
   add (eventPlan) {
@@ -38,7 +46,7 @@ class EventList {
 
   inflateEvents (jsonObject) {
     let tempArray = [];
-    jsonObject.forEach( (eventPlan) => {
+    jsonObject.forEach((eventPlan) => {
       var eventPlan = new EventPlan(eventPlan.content, eventPlan.date, eventPlan.time)
       tempArray.push(eventPlan)
     })
