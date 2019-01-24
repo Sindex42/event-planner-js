@@ -2,12 +2,14 @@
 
 class EventList {
   constructor () {
-    this.events = []
+    this.events = this.inflateEvents(JSON.parse(localStorage.getItem("Events"))) || [];
   }
 
   add (eventPlan) {
     this.events.push(eventPlan);
     this.sortEvents()
+    let eventsString = JSON.stringify(this.events)
+    localStorage.setItem("Events", eventsString);
   }
 
   renderEventList () {
@@ -23,7 +25,8 @@ class EventList {
     let upcoming = []
     var now = now
 
-    this.events.forEach((eventPlan) => {
+    let inflatedEvents = this.inflateEvents(JSON.parse(localStorage.getItem("Events")))
+    inflatedEvents.forEach((eventPlan) => {
       let eventTime = Date.parse(`${eventPlan.date}T${eventPlan.time}`)
       if (eventTime > now) {
         upcoming.push(eventPlan)
@@ -31,6 +34,15 @@ class EventList {
 
     })
     return upcoming
+  }
+
+  inflateEvents (jsonObject) {
+    let tempArray = [];
+    jsonObject.forEach( (eventPlan) => {
+      var eventPlan = new EventPlan(eventPlan.content, eventPlan.date, eventPlan.time)
+      tempArray.push(eventPlan)
+    })
+    return tempArray;
   }
 
   sortEvents () {

@@ -3,8 +3,11 @@
 window.onload = () => {
   let button = document.getElementById('button')
   let eventList = new EventList()
+  let eventsDiv = document.getElementById('events')
+  eventsDiv.innerHTML = ''
+  let events = eventList.renderEventList()
+  eventsDiv.appendChild(events)
 
-  window.eventList = eventList
 
   button.addEventListener('click', () => {
     let content = document.getElementById('textbox')
