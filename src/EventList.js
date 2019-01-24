@@ -13,7 +13,6 @@ class EventList {
   renderEventList () {
     let listDiv = document.createElement('div')
     this.upcomingEvents().forEach((eventPlan) => {
-    // this.events.forEach((eventPlan) => {
       let eventHtml = eventPlan.renderEventPlan()
       listDiv.appendChild(eventHtml)
     })
@@ -22,7 +21,7 @@ class EventList {
 
   upcomingEvents (now = Date.parse(new Date)) {
     let upcoming = []
-    let now = Date.parse(new Date)
+    var now = now
 
     this.events.forEach((eventPlan) => {
       let eventTime = Date.parse(`${eventPlan.date}T${eventPlan.time}`)
