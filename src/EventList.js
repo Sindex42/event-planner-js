@@ -12,14 +12,10 @@ class EventList {
 
   renderEventList () {
     let listDiv = document.createElement('div')
-    listDiv.innerHTML = ''
-    console.log(listDiv)
     this.events.forEach((eventPlan) => {
-      console.log(listDiv)
       let eventHtml = eventPlan.renderEventPlan()
       listDiv.appendChild(eventHtml)
     })
-    console.log(listDiv)
     return listDiv
   }
 
