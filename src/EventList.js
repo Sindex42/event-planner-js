@@ -20,7 +20,7 @@ class EventList {
     return listDiv
   }
 
-  upcomingEvents () {
+  upcomingEvents (now = Date.parse(new Date)) {
     let upcoming = []
     let now = Date.parse(new Date)
 
