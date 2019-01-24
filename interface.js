@@ -12,8 +12,6 @@ window.onload = () => {
     let eventPlan = new EventPlan(content.value, date.value, time.value)
     eventList.add(eventPlan)
     content.value = date.value = time.value = ''
-    console.log(document.getElementById("events"))
-    console.log(document.getElementById("event"))
     display()
   })
 
