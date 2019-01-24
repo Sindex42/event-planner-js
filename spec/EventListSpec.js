@@ -6,11 +6,16 @@ describe('EventList', () => {
   let eventList2 = new EventList()
   let eventList3 = new EventList()
 
+  let oneEvent = 'Event'
   let e1 = { dateTime: '3' }
   let e2 = { dateTime: '1' }
   let e3 = { dateTime: '2' }
 
-  let oneEvent = 'Event'
+  let e4 = {
+    renderEventPlan () {
+    return document.createElement('div')
+    }
+  }
 
   describe('events', () => {
     it('should have an empty array by default', () => {
@@ -37,11 +42,10 @@ describe('EventList', () => {
   })
 
   describe('#renderEventList', () => {
-    it('add event divs to listDiv', () => {
-      eventList3.events.push(e1, e2, e3)
-      console.log(eventList3.events)
+    it('adds event divs to listDiv', () => {
+      eventList3.events.push(e4, e4)
 
-      expect(eventList3.renderEventList().childElementCount).toEqual(3)
+      expect(eventList3.renderEventList().childElementCount).toEqual(2)
     })
   })
 })
