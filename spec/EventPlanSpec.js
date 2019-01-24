@@ -18,11 +18,11 @@ describe('EventPlan', () => {
       expect(event1.date).toEqual('2020-01-16')
     })
 
-    it('should throw an error if the user tries to create an event in the past', () => {
-      expect(() => {
-        new EventPlan('Event in the past', '1970-01-01', '12:01')
-      }).toThrowError('Cannot create an event in the past')
-    })
+    // it('should throw an error if the user tries to create an event in the past', () => {
+    //   expect(() => {
+    //     new EventPlan('Event in the past', '1970-01-01', '12:01')
+    //   }).toThrowError('Cannot create an event in the past')
+    // })
   })
 
   describe('time', () => {

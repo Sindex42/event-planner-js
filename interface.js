@@ -4,6 +4,8 @@ window.onload = () => {
   let button = document.getElementById('button')
   let eventList = new EventList()
 
+  window.eventList = eventList
+
   button.addEventListener('click', () => {
     let content = document.getElementById('textbox')
     let date = document.getElementById('date')
