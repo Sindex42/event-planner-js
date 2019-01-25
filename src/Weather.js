@@ -1,11 +1,16 @@
-var cityID = 'London'
-var appID = config.APPID
+const getWeather = () => {
+  let cityID = 'London', appID = config.APPID
+  let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityID}&APPID=${appID}`
+  let request = new XMLHttpRequest()
 
-var request = new XMLHttpRequest()
-request.open('GET', `https://api.openweathermap.org/data/2.5/weather?q=${cityID}&APPID=${appID}`, true)
+  request.open('GET', weatherUrl, true)
 
-request.onload = () => {
-  console.log(request.response)
+  request.onload = () => {
+    let data = JSON.parse(request.response)
+    return data.weather[0].description
+  }
+
+  request.send()
 }
 
-request.send()
+getWeather()
