@@ -35,7 +35,7 @@ window.onload = () => {
   }
 
   deleteButton.onclick = () => {
-    localStorage.removeItem('Events')
+    localStorage.clear()
     eventList.events = eventList.inStorage()
     eventsDiv.innerHTML = 'No events listed'
   }
@@ -47,7 +47,7 @@ window.onload = () => {
     request.open('GET', weatherUrl, true)
     request.onload = () => {
       let data = JSON.parse(request.response)
-      weatherDiv.innerText = `${data.weather[0].description}`
+      weatherDiv.innerText = `The weather in ${city.value} will be: ${data.weather[0].description}`
     }
     request.send()
   }
