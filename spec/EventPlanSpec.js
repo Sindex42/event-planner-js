@@ -1,5 +1,5 @@
 'use strict'
-/* global describe, it, expect, EventPlan */
+/* global describe, it, expect, EventPlan, EventList */
 
 describe('EventPlan', () => {
   let content = 'test event'

@@ -5,24 +5,32 @@
     <script src="config.js"></script>
     <script src="src/EventPlan.js"></script>
     <script src="src/EventList.js"></script>
-    <script src="src/Weather.js"></script>
     <script src="interface.js"></script>
     <title>Event Planner</title>
   </head>
 
   <body>
-    <div style="margin: 2em">
+    <div id="event-input" style="margin: 2em">
       <input type="text" id="textbox">
       <input type="date" id="date">
       <input type="time" id="time">
       <button id="button">Create event</button>
     </div>
 
-    <div id="events">
-      <div id="event"></div>
+    <div id="events" style="margin: 2em">
     </div>
 
-    <button id="delete-button">Clear All</button>
+    <div style="margin: 2em">
+      <button id="delete-button">Clear All Events</button>
+    </div>
 
+    <div style="margin: 2em">
+      <input type="text" id="city">
+      <button id="weather-button">Get weather</button>
+    </div>
+
+    <div id="weather" style="margin: 2em">
+    </div>
+    
   </body>
 </html>

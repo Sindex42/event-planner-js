@@ -2,9 +2,14 @@
 
 window.onload = () => {
   let button = document.getElementById('button')
-  let eventList = new EventList()
   let eventsDiv = document.getElementById('events')
-  let deleteButton = document.getElementById("delete-button")
+  let deleteButton = document.getElementById('delete-button')
+  let weatherButton = document.getElementById('weather-button')
+  let weatherDiv = document.getElementById('weather')
+  let city = document.getElementById('city')
+
+  let eventList = new EventList()
+  let appID = config.APPID
 
   const display = () => {
     eventsDiv.innerHTML = ''
@@ -12,10 +17,10 @@ window.onload = () => {
     eventsDiv.appendChild(events)
   }
 
-  if (localStorage.getItem("Events")) {
+  if (localStorage.getItem('Events')) {
     display()
   } else {
-    eventsDiv.innerHTML = "No events listed";
+    eventsDiv.innerHTML = 'No events listed'
   }
 
   button.onclick = () => {
@@ -25,14 +30,25 @@ window.onload = () => {
 
     let eventPlan = new EventPlan(content.value, date.value, time.value)
     eventList.add(eventPlan)
-    content.value = date.value = time.value = ''
+    // content.value = date.value = time.value = ''
     display()
   }
 
   deleteButton.onclick = () => {
-    localStorage.removeItem("Events")
+    localStorage.removeItem('Events')
     eventList.events = eventList.inStorage()
-    eventsDiv.innerHTML = "No events listed";
+    eventsDiv.innerHTML = 'No events listed'
   }
 
+  weatherButton.onclick = () => {
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&APPID=${appID}`
+    let request = new XMLHttpRequest()
+
+    request.open('GET', weatherUrl, true)
+    request.onload = () => {
+      let data = JSON.parse(request.response)
+      weatherDiv.innerText = `${data.weather[0].description}`
+    }
+    request.send()
+  }
 }
