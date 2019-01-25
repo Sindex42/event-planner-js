@@ -18,8 +18,8 @@ describe('EventList', () => {
     time: '18:00',
     renderEventPlan: () => { return document.createElement('div') }
   }
-  let e5 = { date: '1970-01-01', time: '00:00'}
-  let e6 = { date: '2019-01-26', time: '12:00'}
+  let e5 = { date: '1970-01-01', time: '00:00' }
+  let e6 = { date: '2019-01-26', time: '12:00' }
 
   describe('events', () => {
     it('should have an empty array by default', () => {

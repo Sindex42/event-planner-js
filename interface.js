@@ -1,39 +1,39 @@
-"use strict"
+'use strict'
 
 window.onload = () => {
-  let button = document.getElementById("button")
-  let weatherButton = document.getElementById("weather-button")
+  let button = document.getElementById('button')
+  let weatherButton = document.getElementById('weather-button')
   let eventList = new EventList()
-  let eventsDiv = document.getElementById("events")
-  let deleteButton = document.getElementById("delete-button")
+  let eventsDiv = document.getElementById('events')
+  let deleteButton = document.getElementById('delete-button')
 
   const display = () => {
-    eventsDiv.innerHTML = ""
+    eventsDiv.innerHTML = ''
     let events = eventList.renderEventList()
     eventsDiv.appendChild(events)
   }
 
-  if (localStorage.getItem("Events")) {
+  if (localStorage.getItem('Events')) {
     display()
   } else {
-    eventsDiv.innerHTML = "No events listed";
+    eventsDiv.innerHTML = 'No events listed'
   }
 
   button.onclick = () => {
-    let content = document.getElementById("textbox")
-    let date = document.getElementById("date")
-    let time = document.getElementById("time")
+    let content = document.getElementById('textbox')
+    let date = document.getElementById('date')
+    let time = document.getElementById('time')
 
     let eventPlan = new EventPlan(content.value, date.value, time.value)
     eventList.add(eventPlan)
-    content.value = date.value = time.value = ""
+    content.value = date.value = time.value = ''
     display()
   }
 
   deleteButton.onclick = () => {
-    localStorage.removeItem("Events")
+    localStorage.removeItem('Events')
     eventList.events = eventList.inStorage()
-    eventsDiv.innerHTML = "No events listed";
+    eventsDiv.innerHTML = 'No events listed'
   }
 
   // weatherButton.onclick = () => {
@@ -43,7 +43,5 @@ window.onload = () => {
 
   //   let weatherDiv = document.getElementById("weather")
 
-
   //   weatherDiv.innerHTML = weatherDescription
-    
 }
