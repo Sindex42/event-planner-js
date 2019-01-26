@@ -2,7 +2,7 @@
 
 A single page app to list and keep track of upcoming events. This app was test driven using my own [basic testing framework](https://github.com/Sindex42/joust-testing-framework).
 
-A current version of the app has been deployed on [surge](eventPlanner-ConnorKC.surge.sh).
+A current version of the app has been deployed on [surge](https://eventPlanner-ConnorKC.surge.sh).
 
 ## Features
 
